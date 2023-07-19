@@ -16,7 +16,7 @@ const register = async(req, res) => {
         const hashPassword = await bcrypt.hash(body.password, 10);
         body.password = hashPassword
         await services.insertOne(userTable, body);
-        return res.jsond(Created, Created, "success", "register success, please check your email");
+        return res.jsond(Created, Created, "success", "register success");
     } catch (error) {
         return res.jsond(InternalServerError, InternalServerError,"error", "Something went wrong");
     }
